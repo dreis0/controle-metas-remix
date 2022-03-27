@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Meta {
+  @@map("meta")
+
+  id            Int   @id @default(autoincrement())
+  descricao     String 
+  metaDeHoras   Int @map("meta_de_horas")
+  tipoDeMeta    Int @map("tipo_de_meta")
+  horas         LogHoras[]
+}
+
+model LogHoras {
+  @@map("log_horas")
+
+  id            Int @id @default(autoincrement())
+  metaId        Int @map("meta_id")
+  metas         Meta @relation(fields: [metaId], references: [id], onDelete: Cascade)
+  horas         Int
+  data          DateTime @default(now())
+}
