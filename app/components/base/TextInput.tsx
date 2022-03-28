@@ -26,7 +26,7 @@ export function TextInput({
           type={type ?? "text"}
           placeholder={placeholder}
           className={`mt-1 rounded-md flex-1 block w-full  ${errorClass}
-          focus:ring-purple-700 focus:border-purple-700 sm:text-sm`}
+          focus:ring-purple-700 focus:border-purple-700 sm:text-sm `}
           aria-invalid={hasError}
           aria-errormessage={errorMessage}
         />
