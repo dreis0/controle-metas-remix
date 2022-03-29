@@ -1,12 +1,14 @@
 import { Meta } from "~/model";
-import { PencilIcon } from "@heroicons/react/outline";
+import { CalendarIcon } from "@heroicons/react/outline";
+import { Link } from "remix";
+import { getWeekBoundaries } from "~/utils";
 
 export interface MetaCardProps {
   meta: Meta;
 }
 
 export function MetaCard({ meta }: MetaCardProps) {
-  var [start, end] = getWeekDates();
+  var [start, end] = getWeekBoundaries();
   var logsNaSemana =
     meta.horas &&
     meta.horas.filter(
@@ -28,9 +30,9 @@ export function MetaCard({ meta }: MetaCardProps) {
         <div className="col-span-8 w-full justify-center">
           <h2 className="font-semibold text-lg">{meta.descricao}</h2>
         </div>
-        <span className="col-span-2 flex justify-end">
-          <PencilIcon className="text-sm h-5 w-5" />
-        </span>
+        <Link to={`logs/${meta.id}/week`} className="col-span-2 flex justify-end">
+          <CalendarIcon className="text-sm h-5 w-5" />
+        </Link>
         <span className="col-span-10 w-full">
           Meta: {meta.tipoDeMeta === 0 ? "Mínimo de " : "Máximo de "}
           {meta.metaDeHoras} horas
@@ -61,18 +63,4 @@ function getProgressColorClass(tipo: number, percentage: number) {
   return "bg-yellow-700";
 }
 
-function getWeekDates() {
-  let now = new Date();
-  let dayOfWeek = now.getDay(); //0-6
-  let numDay = now.getDate();
 
-  let start = new Date(now); //copy
-  start.setDate(numDay - dayOfWeek);
-  start.setHours(0, 0, 0, 0);
-
-  let end = new Date(now); //copy
-  end.setDate(numDay + (7 - dayOfWeek));
-  end.setHours(23, 59);
-
-  return [start, end];
-}

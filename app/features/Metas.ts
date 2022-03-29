@@ -32,6 +32,15 @@ export async function getMetas(): Promise<Meta[]> {
   });
 }
 
+export async function getMetaById(id: number): Promise<Meta> {
+  return await db.meta.findUnique({
+    where: { id: id },
+    include: {
+      horas: true,
+    },
+  });
+}
+
 function validateNomeMeta(nome: string): { result: boolean; error?: string } {
   if (!Boolean(nome)) return { result: false, error: "Informe um nome" };
   return { result: true };
