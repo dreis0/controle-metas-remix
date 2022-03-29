@@ -7,12 +7,13 @@ export interface LogHorasCardProps {
 }
 
 export function LogHorasCard({ log, tipoDeMeta }: LogHorasCardProps) {
-    const borderColor =
+  const borderColor =
     tipoDeMeta === 0 ? "border-green-400" : "border-orange-400";
 
   return (
     <div
-      className={`p-4 pb-2 col-span-10 rounded-md border-gray-500 flex flex-col bg-white border-l-4 ${borderColor} `}
+      className={`${borderColor} p-4 mr-2 pb-2 col-span-10 rounded-md border-gray-500 flex flex-col bg-white 
+      border-l-4 md:px-2 md:py-4 md:mr-0 md:rounded-none mb-2`}
     >
       <p className="col-span-12 mb-2">
         + {log.horas}{" "}

@@ -30,7 +30,7 @@ export function MetaCard({ meta }: MetaCardProps) {
         <div className="col-span-8 w-full justify-center">
           <h2 className="font-semibold text-lg">{meta.descricao}</h2>
         </div>
-        <Link to={`logs/${meta.id}/week`} className="col-span-2 flex justify-end">
+        <Link to={`logs/${meta.id}/week`} prefetch="intent" className="col-span-2 flex justify-end">
           <CalendarIcon className="text-sm h-5 w-5" />
         </Link>
         <span className="col-span-10 w-full">

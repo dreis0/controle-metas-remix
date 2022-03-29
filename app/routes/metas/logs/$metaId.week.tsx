@@ -31,7 +31,7 @@ export default function () {
 
   return (
     <div
-      className="tab-pane fade show active"
+      className="tab-pane fade show"
       id="week"
       role="tabpanel"
       aria-labelledby="tabs-home-tabJustify"

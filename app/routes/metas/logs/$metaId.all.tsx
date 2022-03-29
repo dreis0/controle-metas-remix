@@ -30,7 +30,7 @@ export default function () {
     meta.horas.sort((x, y) => (new Date(x.data) > new Date(y.data) ? 1 : 0));
 
   return (
-    <div className="grid grid-cols-10 ">
+    <div className="grid grid-cols-10">
       {horas && horas.length === 0 ? (
         <div className="p-4 text-lg col-span-10 text-center">
           Sem nenhum registros por enquanto

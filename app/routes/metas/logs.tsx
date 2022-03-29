@@ -91,14 +91,8 @@ export default function () {
           </Link>
         </li>
       </ul>
-      <div className="tab-content" id="tabs-tabContentJustify">
+      <div className="tab-content overflow-y-scroll max-h-screen md:max-h-96" id="tabs-tabContentJustify">
         <Outlet />
-        {/* <div
-          className="tab-pane fade"
-          id="all"
-          role="tabpanel"
-          aria-labelledby="tabs-profile-tabJustify"
-        ></div> */}
       </div>
     </Modal>
   );
