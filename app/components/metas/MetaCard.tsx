@@ -1,5 +1,5 @@
 import { Meta } from "~/model";
-import { CalendarIcon } from "@heroicons/react/outline";
+import { CalendarIcon, PlusIcon } from "@heroicons/react/outline";
 import { Link } from "remix";
 import { getWeekBoundaries } from "~/utils";
 
@@ -30,9 +30,14 @@ export function MetaCard({ meta }: MetaCardProps) {
         <div className="col-span-8 w-full justify-center">
           <h2 className="font-semibold text-lg">{meta.descricao}</h2>
         </div>
-        <Link to={`logs/${meta.id}/week`} prefetch="intent" className="col-span-2 flex justify-end">
-          <CalendarIcon className="text-sm h-5 w-5" />
-        </Link>
+        <div className="col-span-2 flex justify-end">
+          <Link to={`${meta.id}/add`} prefetch="intent" className="mx-2">
+            <PlusIcon className="text-sm h-5 w-5" />
+          </Link>
+          <Link to={`logs/${meta.id}/week`} prefetch="intent" className="mx-2">
+            <CalendarIcon className="text-sm h-5 w-5" />
+          </Link>
+        </div>
         <span className="col-span-10 w-full">
           Meta: {meta.tipoDeMeta === 0 ? "Mínimo de " : "Máximo de "}
           {meta.metaDeHoras} horas
@@ -62,5 +67,3 @@ function getProgressColorClass(tipo: number, percentage: number) {
 
   return "bg-yellow-700";
 }
-
-

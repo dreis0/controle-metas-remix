@@ -82,9 +82,9 @@ export default function () {
                   <option value="1">Máximo</option>
                 </SelectInput>
               </div>
-              <div className="mt-4 text-right col-span-4">
-                <Button type="submit">Criar</Button>
-              </div>
+                <div className="mt-4 text-right col-span-4">
+                  <Button type="submit">Criar</Button>
+                </div>
             </div>
           </div>
         </div>

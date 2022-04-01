@@ -7,7 +7,7 @@ import { format } from "date-fns";
 
 type LoaderData = { meta: Meta };
 
-export const loader: LoaderFunction = async ({ request, params }) => {
+export const loader: LoaderFunction = async ({  params }) => {
   const meta = await getMetaById(Number(params.metaId));
 
   if (!meta) {

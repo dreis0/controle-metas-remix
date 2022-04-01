@@ -19,7 +19,7 @@ export default function MetasIndex() {
     <div className="px-4 md:px-16">
       <h1 className="py-4 text-2xl">Metas</h1>
       <Link to="new">
-        <div className="p-2 bg-white rounded-md shadow-sm w-full mb-4 text-center font-bold text-lg hover:shadow-md">
+        <div className="p-2 bg-white rounded-md shadow-sm mb-4 text-center font-bold text-lg hover:shadow-md">
           + Nova
         </div>
       </Link>
